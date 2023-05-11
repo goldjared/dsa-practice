@@ -24,4 +24,14 @@ console.log(power(2, 2)); // 4
 console.log(power(2, 1)); // 2
 console.log(power(2, 0)); // 1
 */
+function power(x, y) {
+  if(y === 0) return 1;
+  return x * power(x, y - 1);
+  /* call 4 2 * 2 
+  , call 3 2 * 2 
+  call 2 2* 2 
+  call 1 2* 2 
+  call 0, return 1
 
+  */
+}
