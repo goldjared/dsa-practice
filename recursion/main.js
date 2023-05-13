@@ -51,5 +51,43 @@ factorial(5); // 5 * 4 * 3 * 2 * 1 === 120
 // }
 
 /*
+Question 4: Check all values in an array
+Write a function called all which accepts an array and a 
+callback and returns true if every value in the array returns true when passed as 
+parameter to the callback function
+
+Sample:
+var allAreLessThanSeven = all([1,2,9], function(num){
+	return num < 7;
+});
+
+console.log(allAreLessThanSeven); // false
+
+accepts array, callback func
+returns true if every val in array = true when passed to callback
+*/
+// function all(array, cb) {
+// const copy = copy || 
+// }
+// console.log(allAreLessThanSeven)
+/*
+Question 5: Product of an array
+Write a function called productOfArray which takes in an array of numbers
+ and returns the product of them all
+
+Sample:
+var six = productOfArray([1,2,3]) // 6
+var sixty = productOfArray([1,2,3,10]) // 60
 
 */
+
+function productOfArray(array) {
+  if(array.length === 0) {
+    return 1;
+  }
+  return array.shift() * productOfArray(array);
+  
+  // return console.log(productOfArray(array).length);
+}
+
+console.log(productOfArray([1,2,3]));
