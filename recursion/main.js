@@ -14,8 +14,6 @@ Sample: sumRange(3) returns 6, since 1 + 2 + 3 = 6. */
 // 	*/
 // }
 
-
-
 /* Question 2: Power function
 Write a function called power which takes in a base and an exponent. If the exponent is 0, return 1.
 console.log(power(2, 4)); // 16
@@ -27,10 +25,10 @@ console.log(power(2, 0)); // 1
 // function power(x, y) {
 //   if(y === 0) return 1;
 //   return x * power(x, y - 1);
-//   /* call 4 2 * 2 
-//   , call 3 2 * 2 
-//   call 2 2* 2 
-//   call 1 2* 2 
+//   /* call 4 2 * 2
+//   , call 3 2 * 2
+//   call 2 2* 2
+//   call 1 2* 2
 //   call 0, return 1
 
 //   */
@@ -67,7 +65,7 @@ accepts array, callback func
 returns true if every val in array = true when passed to callback
 */
 // function all(array, cb) {
-// const copy = copy || 
+// const copy = copy ||
 // }
 // console.log(allAreLessThanSeven)
 /*
@@ -86,7 +84,7 @@ var sixty = productOfArray([1,2,3,10]) // 60
 //     return 1;
 //   }
 //   return array.shift() * productOfArray(array);
-  
+
 //   // return console.log(productOfArray(array).length);
 // }
 
@@ -118,7 +116,7 @@ let doesntHaveIt = contains(nestedObject, "foo"); // false
 // function contains(obj, value) {
 //     // get obj, check if obj has obj in it, if so, call contains with that new object, and value.
 //     // if obj does not have obj in it, check each key value for matcah.
-  
+
 //   if(!(typeof Object.values(obj)[0] === 'object')) {
 // Object.values(obj).forEach((item) => {
 //     if(item === value) {
@@ -157,4 +155,34 @@ Given a multi-dimensional integer array, return the total number of integers sto
 
 Sample:
 var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+*/
+function totalIntegers(array) {
+  if(array.length === 0) {
+    return 0;
+  }
+  let integer = 0;
+  let first = array.shift();
+  if (Array.isArray(first)) {
+    integer += totalIntegers(first);
+  } else if(Number.isInteger(first)) {
+    integer += 1;
+  }
+    return integer + totalIntegers(array);
+  
+
+  //each item in array, if integer, integer += 1,
+}
+var seven = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]); // 7
+console.log(seven)
+// var seven = totalIntegers([5]); // 7
+/*
+i need to go through, a multi dim array
+using recursion
+how? 
+check if array, if yes, go inside first array, check if array, if yes, go inside first array, check 
+if array, if not array, shift value, check if integer. 
+
+if integer, add 1 to integer variable. call recurse.
+if not integer, call recurse.
+start of recurse shou;ld check if array is empty. if empty, return integer.
 */
