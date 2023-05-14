@@ -212,23 +212,22 @@ console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
 // 		} else {
 // 			total += array[i] * array[i];
 // 		}
-		
+
 // 	}
 // 	return total;
 // }
 
-
-// // var l = [1,2,3]; 
+// // var l = [1,2,3];
 // // console.log(sumSquares(l)); // 1 + 4 + 9 = 14
 
-// // l = [[1,2],3]; 
+// // l = [[1,2],3];
 // // console.log(sumSquares(l)); // 1 + 4 + 9 = 14
 
-// // l = [[[[[[[[[1]]]]]]]]] 
+// // l = [[[[[[[[[1]]]]]]]]]
 // // console.log(sumSquares(l)); // 1 = 1
 // // console.log(l === [])
 
-// l = [10,[[10],10],[10]] 
+// l = [10,[[10],10],[10]]
 // console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
 /*
 Question 9:
