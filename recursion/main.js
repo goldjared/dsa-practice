@@ -157,23 +157,22 @@ Sample:
 var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
 */
 function totalIntegers(array) {
-  if(array.length === 0) {
+  if (array.length === 0) {
     return 0;
   }
   let integer = 0;
   let first = array.shift();
   if (Array.isArray(first)) {
     integer += totalIntegers(first);
-  } else if(Number.isInteger(first)) {
+  } else if (Number.isInteger(first)) {
     integer += 1;
   }
-    return integer + totalIntegers(array);
-  
+  return integer + totalIntegers(array);
 
   //each item in array, if integer, integer += 1,
 }
 var seven = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]); // 7
-console.log(seven)
+console.log(seven);
 // var seven = totalIntegers([5]); // 7
 /*
 i need to go through, a multi dim array
