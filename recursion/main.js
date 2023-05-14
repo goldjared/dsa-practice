@@ -93,7 +93,8 @@ var sixty = productOfArray([1,2,3,10]) // 60
 // console.log(productOfArray([1,2,3]));
 /*
 Question 6: Search JS object
-Write a function called contains that searches for a value in a nested object. It returns true if the object contains that value.
+Write a function called contains that searches for a value in 
+a nested object. It returns true if the object contains that value.
 
 Sample:
 var nestedObject = {
@@ -114,3 +115,39 @@ var nestedObject = {
 let hasIt = contains(nestedObject, 44); // true
 let doesntHaveIt = contains(nestedObject, "foo"); // false
 */
+function contains(obj, value) {
+    // get obj, check if obj has obj in it, if so, call contains with that new object, and value.
+    // if obj does not have obj in it, check each key value for matcah.
+  
+  if(!(typeof Object.values(obj)[0] === 'object')) {
+Object.values(obj).forEach((item) => {
+    if(item === value) {
+        return console.log('true');
+    } else {
+        return console.log('false');
+    }
+})
+  }
+  if(typeof Object.values(obj)[0] === 'object') {
+    // return console.log(Object.values(obj)[0]);
+    return contains(Object.values(obj)[0], value);
+  } else {
+    return console.log('end, no matches found');
+  }
+}
+var nestedObject = {
+    data: {
+        info: {
+            stuff: {
+                thing: {
+                    moreStuff: {
+                        magicNumber: 44,
+                        something: 'foo2'
+                    }
+                }
+            }
+        }
+    }
+}
+console.log(contains(nestedObject, "foo22"))
+// console.log(contains(nestedObject.data.info.stuff.thing.moreStuff, 44))
