@@ -115,39 +115,46 @@ var nestedObject = {
 let hasIt = contains(nestedObject, 44); // true
 let doesntHaveIt = contains(nestedObject, "foo"); // false
 */
-function contains(obj, value) {
-    // get obj, check if obj has obj in it, if so, call contains with that new object, and value.
-    // if obj does not have obj in it, check each key value for matcah.
+// function contains(obj, value) {
+//     // get obj, check if obj has obj in it, if so, call contains with that new object, and value.
+//     // if obj does not have obj in it, check each key value for matcah.
   
-  if(!(typeof Object.values(obj)[0] === 'object')) {
-Object.values(obj).forEach((item) => {
-    if(item === value) {
-        return console.log('true');
-    } else {
-        return console.log('false');
-    }
-})
-  }
-  if(typeof Object.values(obj)[0] === 'object') {
-    // return console.log(Object.values(obj)[0]);
-    return contains(Object.values(obj)[0], value);
-  } else {
-    return console.log('end, no matches found');
-  }
-}
-var nestedObject = {
-    data: {
-        info: {
-            stuff: {
-                thing: {
-                    moreStuff: {
-                        magicNumber: 44,
-                        something: 'foo2'
-                    }
-                }
-            }
-        }
-    }
-}
-console.log(contains(nestedObject, "foo22"))
+//   if(!(typeof Object.values(obj)[0] === 'object')) {
+// Object.values(obj).forEach((item) => {
+//     if(item === value) {
+//         return console.log('true');
+//     } else {
+//         return console.log('false');
+//     }
+// })
+//   }
+//   if(typeof Object.values(obj)[0] === 'object') {
+//     // return console.log(Object.values(obj)[0]);
+//     return contains(Object.values(obj)[0], value);
+//   } else {
+//     return console.log('end, no matches found');
+//   }
+// }
+// var nestedObject = {
+//     data: {
+//         info: {
+//             stuff: {
+//                 thing: {
+//                     moreStuff: {
+//                         magicNumber: 44,
+//                         something: 'foo2'
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// console.log(contains(nestedObject, "foo22"))
 // console.log(contains(nestedObject.data.info.stuff.thing.moreStuff, 44))
+/*  
+Question 7: Parse a multi-dimensional array
+Given a multi-dimensional integer array, return the total number of integers stored inside this array
+
+Sample:
+var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+*/
