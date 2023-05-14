@@ -156,23 +156,23 @@ Given a multi-dimensional integer array, return the total number of integers sto
 Sample:
 var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
 */
-function totalIntegers(array) {
-  if (array.length === 0) {
-    return 0;
-  }
-  let integer = 0;
-  let first = array.shift();
-  if (Array.isArray(first)) {
-    integer += totalIntegers(first);
-  } else if (Number.isInteger(first)) {
-    integer += 1;
-  }
-  return integer + totalIntegers(array);
+// function totalIntegers(array) {
+//   if (array.length === 0) {
+//     return 0;
+//   }
+//   let integer = 0;
+//   let first = array.shift();
+//   if (Array.isArray(first)) {
+//     integer += totalIntegers(first);
+//   } else if (Number.isInteger(first)) {
+//     integer += 1;
+//   }
+//   return integer + totalIntegers(array);
 
-  //each item in array, if integer, integer += 1,
-}
-var seven = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]); // 7
-console.log(seven);
+//   //each item in array, if integer, integer += 1,
+// }
+// var seven = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]); // 7
+// console.log(seven);
 // var seven = totalIntegers([5]); // 7
 /*
 i need to go through, a multi dim array
@@ -184,4 +184,21 @@ if array, if not array, shift value, check if integer.
 if integer, add 1 to integer variable. call recurse.
 if not integer, call recurse.
 start of recurse shou;ld check if array is empty. if empty, return integer.
+*/
+/*
+Question 8:
+Write a function that sums squares of numbers in list that may contain more lists
+
+Sample:
+var l = [1,2,3]; 
+console.log(SumSquares(l)); // 1 + 4 + 9 = 14
+
+l = [[1,2],3]; 
+console.log(SumSquares(l)); // 1 + 4 + 9 = 14
+
+l = [[[[[[[[[1]]]]]]]]] 
+console.log(SumSquares(l)); // 1 = 1
+
+l = [10,[[10],10],[10]] 
+console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
 */
