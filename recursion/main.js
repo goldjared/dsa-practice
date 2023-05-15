@@ -262,13 +262,13 @@ array starts at [0,1], iterator thus starts at 2, since we have 0,1
 every iteration will be, current i (eg [2]) will be = to [i -1] + [i-2], well push this value to array.
 the loop will run, until i < num
 */
-function fib(num) {
-const fibArray = [0, 1];
-for(let i = 2; i < num; i++) {
-  fibArray[i] = fibArray[i - 2] + fibArray[i - 1];
-}
-return fibArray;
-}
+// function fib(num) {
+// const fibArray = [0, 1];
+// for(let i = 2; i < num; i++) {
+//   fibArray[i] = fibArray[i - 2] + fibArray[i - 1];
+// }
+// return fibArray;
+// }
 
-console.log(fib(8));
+// console.log(fib(8));
 
