@@ -272,3 +272,28 @@ the loop will run, until i < num
 
 // console.log(fib(8));
 
+/*
+get num, 8
+array start [0,1]
+if array length < num, stop.
+every iteration, return [0] + [1], = [2], then ill call next iterate with [1] [2], until base
+is met.
+the stack, 
+*/
+// function fibRec(num) {
+//   if(num < 2) {
+//     return num;
+//   }
+//   const sequence = []
+//   return (fibRec(num - 1) + fibRec(num - 2));
+  
+
+// //   return fibRec(num - 1) + fibRec(num - 2);
+// }
+function fibRec(n) {
+  if (n == 0) return [0]
+  if (n == 1) return [0, 1]
+  const arr = fibRec(n - 1)
+  return [...arr, arr[n-1] + arr[n-2]]
+}
+console.log(fibRec(5))
