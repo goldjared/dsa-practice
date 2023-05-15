@@ -237,11 +237,11 @@ return an empty array.
 
 
 */
-function replicate(reps, val) {
-	if(reps <= 0) return [];
+// function replicate(reps, val) {
+// 	if(reps <= 0) return [];
 
-	return [val].concat(replicate(reps - 1, val));
-}
-console.log(replicate(3, 5)) // [5, 5, 5]
-// console.log(replicate(1, 69)) // [69]
-// console.log(replicate(-2, 6)) // []
+// 	return [val].concat(replicate(reps - 1, val));
+// }
+// console.log(replicate(3, 5)) // [5, 5, 5]
+// // console.log(replicate(1, 69)) // [69]
+// // console.log(replicate(-2, 6)) // []
