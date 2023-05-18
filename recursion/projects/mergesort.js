@@ -13,21 +13,49 @@ split arrays until 1 unit, if 1 unit, call merge with left, and the other side a
 
 merge func (left, right)
 */
-function mergeSort(array) {
-  if(array.length <= 1) {
-    return array;
-  }
-  let mid = (array.length / 2);
-  let left = array.slice(0, mid);
-  let right = array.slice(mid, array.length);
-  return { left, right }
-  // mergeSort(array.length / 2)
-}
+// function mergeSort(array) {
+//   if(array.length <= 1) {
+//     return;
+//   }
+//   let mid = Math.ceil(array.length / 2);
+//   // let p = array[0]
+//   // let q = array[array.length - 1]
+//   let left = array.slice(0, mid);
+//   console.log('left from ms', left)
+//   let right = array.slice(mid, array.length);
+//   console.log('right from ms', right)
+//   mergeSort(left)
+//   mergeSort(right)
+//   merge(left, right, array)
+//   // return { left, array }
+//   return array;
+// }
 
-function merge(l, r) {
-  return (l < r ? [l,r] : [r,l]);
-}
+// function merge(leftArray, rightArray, array) {
+//   var index = 0;
+ 
+//   while (leftArray.length && rightArray.length) {
+//     console.log('array is: ', array);
+//     if (rightArray[0] < leftArray[0]) {
+//       array[index++] = rightArray.shift();
+//     } else {
+//       array[index++] = leftArray.shift();
+//     }
+//   }
+  
+//   while (leftArray.length) {
+//     console.log('left array is: ', leftArray);
+//     array[index++] = leftArray.shift();
+//   }
+  
+//   while (rightArray.length) {
+//     console.log('right array is: ', rightArray);
+//     array[index++] = rightArray.shift();
+//   }
+  
+//   console.log('** end of merge function ** array is: ', array);
+// }
 
-// console.log(mergeSort([8,7,6,5,4,3,2,1]))
-const xArr = [4,3,2,1]
-console.log(mergeSort(xArr))
+// // console.log(mergeSort([8,7,6,5,4,3,2,1]))
+// const xArr = [5, 4,3,2,1]
+// console.log(mergeSort(xArr))
