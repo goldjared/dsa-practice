@@ -110,6 +110,18 @@ class linkedList {
 // find(value) returns the index of the node containing value, or null if not found.
   }
   toString() {
+    let string = `( ${this.head.data} )`;
+    let counter = 1;
+    let currentNode = this.head;
+    while(counter < this.size) {
+      currentNode = currentNode.next;
+      string += ` -> ( ${currentNode.data} )`;
+      counter++;
+    }
+    if(counter === this.size) {
+      string += ` -> null`
+    } 
+    return string;
 // toString represents your LinkedList objects as strings, so you can print them out and preview them in the console. 
 // The format should be: ( value ) -> ( value ) -> ( value ) -> null
 
@@ -124,15 +136,17 @@ linkedList1.append(300)
 linkedList1.append(400) // gets deleted
 linkedList1.prepend(50)
 // console.log(linkedList1.atIndex(1));
-// console.log('size:',linkedList1.size)
 // console.log('tail before pop:',linkedList1.tail) // should be 400
-// linkedList1.pop();
+linkedList1.pop();
+
+console.log('size:',linkedList1.size)
 // console.log('tail after pop:',linkedList1.tail) // should be 300
 // console.log('size after pop:', linkedList1.size) // should be 1 less;
-console.log(linkedList1)
-console.log(linkedList1.size)
+// console.log(linkedList1)
+console.log(linkedList1.toString());
+// console.log(linkedList1.size)
 // console.log(linkedList1.contains(400));
-console.log(linkedList1.find(400), 'should b 4');
+// console.log(linkedList1.find(400), 'should b 4');
 // console.log(linkedList1.head.next.next.next.next)
 // const test = new Node(69);
 // console.log((test));
