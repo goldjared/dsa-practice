@@ -22,6 +22,12 @@ removeAt(index) that removes the node at the given index.
 Extra Credit Tip: When you insert or remove a node, consider how it will affect the existing nodes. Some of the nodes will need their nextNode link updated.
 
 */
+class Node {
+  constructor(data, next) {
+    this.data = data;
+    this.next = null;
+  }
+}
 class linkedList {
   constructor() {
     this.head = null;
@@ -29,10 +35,21 @@ class linkedList {
     this.size = 0;
   }
   append(val) {
-
+    const newNode = new Node(val);
+    if(!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.size++;
   }
   prepend(val) {
-
+    const newNode = new Node(val);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.size++;
   }
   atIndex() {
 
@@ -53,23 +70,17 @@ class linkedList {
 // The format should be: ( value ) -> ( value ) -> ( value ) -> null
 
   }
-
-
-
-
 }
 
-class Node {
-  constructor(data, next) {
-    this.data = data;
-    this.next = null;
-  }
 
-
-}
-const fucker = new Node(001);
-console.log(linkedList().append(fucker))
-
+const linkedList1 = new linkedList;
+linkedList1.append(99)
+linkedList1.append(33)
+linkedList1.append(103)
+linkedList1.append('spyder')
+linkedList1.prepend('hello')
+console.log(linkedList1)
+// console.log(linkedList1.head.next.next.next.next)
 // const test = new Node(69);
 // console.log((test));
 
