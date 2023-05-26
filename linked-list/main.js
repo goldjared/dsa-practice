@@ -96,7 +96,17 @@ class linkedList {
 // contains(value) returns true if the passed in value is in the list and otherwise returns false.
   }
   find(val) {
-
+    let currentNode = this.head
+    let counter = 0;
+    while(counter < this.size) {
+      if(currentNode.data === val) {
+        return counter;
+      } else {
+        currentNode = currentNode.next;
+        counter++;
+      }
+    }
+    return null;
 // find(value) returns the index of the node containing value, or null if not found.
   }
   toString() {
@@ -116,12 +126,13 @@ linkedList1.prepend(50)
 // console.log(linkedList1.atIndex(1));
 // console.log('size:',linkedList1.size)
 // console.log('tail before pop:',linkedList1.tail) // should be 400
-linkedList1.pop();
+// linkedList1.pop();
 // console.log('tail after pop:',linkedList1.tail) // should be 300
 // console.log('size after pop:', linkedList1.size) // should be 1 less;
 console.log(linkedList1)
 console.log(linkedList1.size)
-console.log(linkedList1.contains(400));
+// console.log(linkedList1.contains(400));
+console.log(linkedList1.find(400), 'should b 4');
 // console.log(linkedList1.head.next.next.next.next)
 // const test = new Node(69);
 // console.log((test));
