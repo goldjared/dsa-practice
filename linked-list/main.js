@@ -66,7 +66,16 @@ class linkedList {
 
   }
   pop() {
-    //removes last item in list
+    delete this.tail;
+    this.size = this.size - 1;
+    let counter = 1;
+    let currentNode = this.head;
+    while(counter < this.size) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    this.tail = currentNode;
+    this.tail.next = null;
   }
   contains(val) {
 
@@ -85,12 +94,17 @@ class linkedList {
 
 
 const linkedList1 = new linkedList;
-linkedList1.append(99)
-linkedList1.append(33)
-linkedList1.append(103)
-linkedList1.append('spyder')
-linkedList1.prepend('hello')
-console.log(linkedList1.atIndex(1));
+linkedList1.append(100)
+linkedList1.append(200)
+linkedList1.append(300)
+linkedList1.append(400)
+linkedList1.prepend(50)
+// console.log(linkedList1.atIndex(1));
+console.log('size:',linkedList1.size)
+console.log('tail before pop:',linkedList1.tail) // should be 400
+linkedList1.pop();
+console.log('tail after pop:',linkedList1.tail) // should be 300
+console.log('size after pop:', linkedList1.size) // should be 1 less;
 console.log(linkedList1)
 // console.log(linkedList1.head.next.next.next.next)
 // const test = new Node(69);
