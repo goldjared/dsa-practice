@@ -51,7 +51,18 @@ class linkedList {
     this.head = newNode;
     this.size++;
   }
-  atIndex() {
+  atIndex(index) {
+    if(index > this.size) {
+      return console.log('ERROR, val > size')
+    }
+    let currentNode = this.head;
+    let counter = 1;
+    while(counter < index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+
 
   }
   pop() {
@@ -79,6 +90,7 @@ linkedList1.append(33)
 linkedList1.append(103)
 linkedList1.append('spyder')
 linkedList1.prepend('hello')
+console.log(linkedList1.atIndex(1));
 console.log(linkedList1)
 // console.log(linkedList1.head.next.next.next.next)
 // const test = new Node(69);
