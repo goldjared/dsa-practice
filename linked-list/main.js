@@ -78,7 +78,21 @@ class linkedList {
     this.tail.next = null;
   }
   contains(val) {
-
+    // loop, goes through head, to tail. inside loop, an if,
+    // if currentNode = val, return true. 
+    // after main loop, return false.
+    let currentNode = this.head
+    let counter = 0;
+    while(counter < this.size) {
+      console.log('currentNode contains =', currentNode.data, 'counter:', counter)
+      if(currentNode.data === val) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+        counter++;
+      }
+    }
+    return false;
 // contains(value) returns true if the passed in value is in the list and otherwise returns false.
   }
   find(val) {
@@ -97,15 +111,17 @@ const linkedList1 = new linkedList;
 linkedList1.append(100)
 linkedList1.append(200)
 linkedList1.append(300)
-linkedList1.append(400)
+linkedList1.append(400) // gets deleted
 linkedList1.prepend(50)
 // console.log(linkedList1.atIndex(1));
-console.log('size:',linkedList1.size)
-console.log('tail before pop:',linkedList1.tail) // should be 400
+// console.log('size:',linkedList1.size)
+// console.log('tail before pop:',linkedList1.tail) // should be 400
 linkedList1.pop();
-console.log('tail after pop:',linkedList1.tail) // should be 300
-console.log('size after pop:', linkedList1.size) // should be 1 less;
+// console.log('tail after pop:',linkedList1.tail) // should be 300
+// console.log('size after pop:', linkedList1.size) // should be 1 less;
 console.log(linkedList1)
+console.log(linkedList1.size)
+console.log(linkedList1.contains(400));
 // console.log(linkedList1.head.next.next.next.next)
 // const test = new Node(69);
 // console.log((test));
