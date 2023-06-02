@@ -6,8 +6,8 @@ class Node {
   }
 }
 class Tree {
-  constructor(array, start, end) {
-    this.root = Tree.buildTree(array, start, end);
+  constructor(array) {
+    this.root = Tree.buildTree(array, 0, array.length - 1);
   }
   static buildTree(array, start, end) {
     if(start > end) return null;
@@ -16,6 +16,18 @@ class Tree {
     node.left = Tree.buildTree(array, start,mid - 1);
     node.right = Tree.buildTree(array, mid + 1, end);
     return node;
+  }
+
+  view() {
+    console.log(this);
+  }
+
+  insert(val) {
+    /*
+     if val < current node, go left, else go right. 
+     keep doing this until we hit leaf (e.g the left and right is null)
+     then if value is < leaf, make left child of leaf, else make right child leaf
+    */
   }
 }
 
@@ -32,8 +44,9 @@ class Tree {
 const tester = [1,2,3,4,5,6,7,8,9,11,12]
 const n = tester.length - 1;
 const myTree = new Tree(tester, 0, n);
-console.log(myTree);
-console.log(myTree.root.left.left.right);
+// console.log(myTree);
+myTree.view();
+// console.log(myTree.root.left.left.right);
 // let treeOne = new NodeTree(node.data, node.left, node.right)
 // let newTree = bST(tester, 0, n);
 // console.log(newTree, 'newTreeb4class');
@@ -55,4 +68,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-// prettyPrint(treeOne);
+// prettyPrint(myTree);
