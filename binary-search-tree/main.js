@@ -53,9 +53,7 @@ class Tree {
       }
       // if not, check if val is less than node, if true, go left, if not, go right
       currentNode = currentNode.right;
-      return Tree.insert(val, currentNode);
-
-      return console.log("fuck2");
+      return this.insert(val, currentNode);
       //opposite of above, this is RIGHT
     }
   }
@@ -75,8 +73,8 @@ const n = tester.length - 1;
 const myTree = new Tree(tester);
 // console.log(myTree);
 // myTree.view();
-myTree.insert(3);
-setTimeout(() => {console.log(myTree.root.left.left);}, 3000);
+myTree.insert(7);
+setTimeout(() => {console.log(myTree.view());}, 3000);
 // console.log(myTree.root.left.left.right);
 // let treeOne = new NodeTree(node.data, node.left, node.right)
 // let newTree = bST(tester, 0, n);
