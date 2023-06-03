@@ -23,11 +23,36 @@ class Tree {
   }
 
   insert(val) {
+    let currentNode = this;
+    console.log(currentNode);
+    // console.log(currentNode.left, 'here is Cn.left');
+
+    //error for val = currentNode?
     /*
      if val < current node, go left, else go right. 
      keep doing this until we hit leaf (e.g the left and right is null)
      then if value is < leaf, make left child of leaf, else make right child leaf
     */
+   if(val < currentNode.data) {
+    //LEFT
+    //check if left node is leaf. if true, add child 
+    if(currentNode.left === null) {
+      return currentNode.left = new Node(val);
+    }
+    // if not, check if val is less than node, if true, go left, if not, go right
+    currentNode = currentNode.left;
+    return Tree.insert(val);
+    // check if ode is leaf, if true, add child, if not, 
+    // check if val is less than node, if true, go left, if not, go right
+   } else {
+    if(currentNode.right === null) {
+      return currentNode.right = new Node(val);
+    }
+    // if not, check if val is less than node, if true, go left, if not, go right
+    currentNode = currentNode.right;
+    return Tree.insert(val);
+    //opposite of above, this is RIGHT
+   }
   }
 }
 
@@ -41,11 +66,13 @@ class Tree {
 // return node;
 // }
 // mid 2
-const tester = [1,2,3,4,5,6,7,8,9,11,12]
+const tester = [4,5,6]
 const n = tester.length - 1;
 const myTree = new Tree(tester, 0, n);
 // console.log(myTree);
-myTree.view();
+// myTree.view();
+myTree.insert();
+// setTimeout(() => {console.log(myTree);}, 3000);
 // console.log(myTree.root.left.left.right);
 // let treeOne = new NodeTree(node.data, node.left, node.right)
 // let newTree = bST(tester, 0, n);
