@@ -22,19 +22,18 @@ class Tree {
     console.log(this);
   }
   find(val, currentNode) {
-
     if (currentNode === undefined) {
       currentNode = this.root;
-    } 
-    if(currentNode === null) {
+    }
+    if (currentNode === null) {
       return false;
     }
-    if(val === currentNode.data) {
+    if (val === currentNode.data) {
       return currentNode;
-    } else if(val < currentNode.data) {
-      return this.find(val, currentNode.left)
-    } else if(val > currentNode.data) {
-      return this.find(val, currentNode.right)
+    } else if (val < currentNode.data) {
+      return this.find(val, currentNode.left);
+    } else if (val > currentNode.data) {
+      return this.find(val, currentNode.right);
     } else {
       return false;
     }
@@ -69,14 +68,14 @@ class Tree {
 
 
     */
-console.log('HERE!!!!!!!!!!', this.find(val));
+    console.log("HERE!!!!!!!!!!", this.find(val));
   }
 }
-const tester = [4, 5, 6,8,9];
+const tester = [4, 5, 6, 8, 9];
 const n = tester.length - 1;
 const myTree = new Tree(tester);
 console.log(myTree);
-myTree.delete(9)
+myTree.delete(9);
 // myTree.view();
 // myTree.insert(7);
 // myTree.insert(9);
