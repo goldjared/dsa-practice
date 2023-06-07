@@ -58,39 +58,36 @@ class Tree {
     }
   }
   deleteRec(value, node) {
-        if (node === null) {
-            return node;
-        }
-  
-        if (value < node.data) {
-            node.left = this.deleteRec(value, node.left);
-            return node;
-        } else if (value > node.data) {
-            node.right = this.deleteRec(value, node.right);
-            return node;
-        }
+    if (node === null) {
+      return node;
+    }
 
-        if(value === node.data) {
-          if(node.left === null) {
-            return node.right;
-          } else if(node.right === null) {
-            return node.left;
-          }
-        }
-        node.right = this.lift(node.right, node);
-        
-}
-lift(node, nodeToDelete) {
-  if(node.left) {
-    node.left = lift(node.left, nodeToDelete)
-    return node;
-  } else {
-    nodeToDelete.data = node.value;
-    return node.right;
+    if (value < node.data) {
+      node.left = this.deleteRec(value, node.left);
+      return node;
+    } else if (value > node.data) {
+      node.right = this.deleteRec(value, node.right);
+      return node;
+    }
+
+    if (value === node.data) {
+      if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      }
+    }
+    node.right = this.lift(node.right, node);
   }
-}
- 
-
+  lift(node, nodeToDelete) {
+    if (node.left) {
+      node.left = lift(node.left, nodeToDelete);
+      return node;
+    } else {
+      nodeToDelete.data = node.value;
+      return node.right;
+    }
+  }
 }
 const tester = [4, 5, 6, 8, 9];
 // const n = tester.length - 1;
