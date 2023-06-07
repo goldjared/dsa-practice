@@ -57,33 +57,58 @@ class Tree {
       return this.insert(val, currentNode);
     }
   }
-  delete(val, currentNode) {
-    /*say i wanat to delete 4, which has a right child of 5.
-    first ill have to traverse down and find 4, if its not there error.
-    ok i found 4, if 4 . left and right = null, i delete node 4, also got to set the previous nodes
-    next node to null. so wahtever val was connected to that node, set the connection to null
+  deleteRec(value, node) {
+        if (node === null) {
+            return node;
+        }
+  
+        if (value < node.data) {
+            node.left = this.deleteRec(value, node.left);
+            return node;
+        } else if (value > node.data) {
+            node.right = this.deleteRec(value, node.right);
+            return node;
+        }
 
-    but if left and right != null, this mean there r nodes after the delete val.
-    in this case, ill have to set the connect above delete val, link it to the val delete was connected
-
-
-    */
-    console.log("HERE!!!!!!!!!!", this.find(val));
+        if(value === node.data) {
+          if(node.left === null) {
+            return node.right;
+          } else if(node.right === null) {
+            return node.left;
+          }
+        }
+        node.right = this.lift(node.right, node);
+        
+}
+lift(node, nodeToDelete) {
+  if(node.left) {
+    node.left = lift(node.left, nodeToDelete)
+    return node;
+  } else {
+    nodeToDelete.data = node.value;
+    return node.right;
   }
 }
+ 
+
+}
 const tester = [4, 5, 6, 8, 9];
-const n = tester.length - 1;
+// const n = tester.length - 1;
 const myTree = new Tree(tester);
 console.log(myTree);
-myTree.delete(9);
+myTree.deleteRec(9, myTree.root);
 // myTree.view();
 // myTree.insert(7);
 // myTree.insert(9);
 // myTree.insert(1);
 // myTree.insert(-20);
 // setTimeout(() => {
-//   console.log(myTree.view());
-// }, 3000);
+//   console.log(myTree.root.left.right, 'should b gone?');
+// }, 2000);
+
+// setTimeout(() => {
+//   prettyPrint(myTree, 'should be gone?');
+// }, 2000);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
