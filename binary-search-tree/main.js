@@ -84,7 +84,7 @@ class Tree {
       node.left = lift(node.left, nodeToDelete);
       return node;
     } else {
-      nodeToDelete.data = node.value;
+      nodeToDelete.data = node.data;
       return node.right;
     }
   }
@@ -93,7 +93,7 @@ const tester = [4, 5, 6, 8, 9];
 // const n = tester.length - 1;
 const myTree = new Tree(tester);
 console.log(myTree);
-myTree.deleteRec(9, myTree.root);
+myTree.deleteRec(6, myTree.root);
 // myTree.view();
 // myTree.insert(7);
 // myTree.insert(9);
