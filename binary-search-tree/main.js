@@ -81,7 +81,7 @@ class Tree {
   }
   lift(node, nodeToDelete) {
     if (node.left) {
-      node.left = lift(node.left, nodeToDelete);
+      node.left = this.lift(node.left, nodeToDelete);
       return node;
     } else {
       nodeToDelete.data = node.data;
