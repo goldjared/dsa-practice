@@ -88,12 +88,30 @@ class Tree {
       return node.right;
     }
   }
+  levelOrder(node, arr) {
+    /*
+    i will have a queue, i need to get breadth first,
+    so we start first node, both it children (if) go in queue
+    so i am 
+    */
+    if(node === null) {
+      return;
+    }
+    // this.levelOrder(node.left)
+    arr.push(node.left, node.right);
+    this.levelOrder(arr.shift(), arr)
+    // this.levelOrder(node.right);
+    return node;
+
+    
+  }
 }
-const tester = [4, 5, 6, 8, 9];
+const tester = [4, 5, 6, 8, 9, 10, 11, 12];
 // const n = tester.length - 1;
 const myTree = new Tree(tester);
 console.log(myTree);
-myTree.deleteRec(6, myTree.root);
+console.log('****', myTree.levelOrder(myTree.root, []), 'HERE');
+// myTree.deleteRec(6, myTree.root);
 // myTree.view();
 // myTree.insert(7);
 // myTree.insert(9);
