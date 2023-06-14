@@ -118,10 +118,21 @@ class Tree {
     return levels
     
   }
-  inOrder(root) {
+  inOrder(root, fn) {
     /*
+    traverse left subtree
+    visit root
+    traverse right subtree
 
     */
+   if(root === null) {
+    return;
+   }
+   this.inOrder(root.left, fn)
+
+
+   fn(root);
+   this.inOrder(root.right, fn)
   }
   // for funcs that pass nodes to a func parameter, and if no func parameter, returns an array of func
   // i think to if func param === undefined, then func param = []
@@ -130,24 +141,12 @@ class Tree {
 const tester = [4, 5, 6, 8, 9, 10, 11, 12];
 // const n = tester.length - 1;
 const myTree = new Tree(tester);
-// console.log(myTree);
-console.log('****', myTree.levelOrder(myTree.root), 'HERE');
-// console.log(myTree.levelOrder(myTree.root, []));
-// myTree.deleteRec(6, myTree.root);
-// myTree.view();
-// myTree.insert(7);
-// myTree.insert(9);
-// myTree.insert(1);
-// myTree.insert(-20);
-// setTimeout(() => {
-//   console.log(myTree.root.left.right, 'should b gone?');
-// }, 2000);
-
+console.log(myTree.inOrder(myTree.root, testFunc));
 // setTimeout(() => {
 //   prettyPrint(myTree, 'should be gone?');
 // }, 2000);
 function testFunc(node) {
-  console.log(node.data, 'test func, nodeLog')
+  return console.log(node.data, 'test func, nodeLog')
 
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -163,4 +162,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-// prettyPrint(myTree.root);
+prettyPrint(myTree.root);
