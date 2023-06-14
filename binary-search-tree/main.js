@@ -148,11 +148,25 @@ class Tree {
    this.preOrder(root.left, fn)
    this.preOrder(root.right, fn)
   }
+  postOrder(root, fn) {
+    /*
+    traverse left tree
+    traverser right
+    print node
+    */
+   if(root === null) {
+    return;
+   }
+
+   this.postOrder(root.right, fn)
+   this.postOrder(root.left, fn)
+   fn(root)
+  }
 }
 const tester = [4, 2, 5, 1, 6, 3, 7];
 // const n = tester.length - 1;
 const myTree = new Tree(tester);
-console.log(myTree.preOrder(myTree.root, testFunc));
+console.log(myTree.postOrder(myTree.root, testFunc));
 // setTimeout(() => {
 //   prettyPrint(myTree, 'should be gone?');
 // }, 2000);
