@@ -134,14 +134,25 @@ class Tree {
    fn(root);
    this.inOrder(root.right, fn)
   }
-  // for funcs that pass nodes to a func parameter, and if no func parameter, returns an array of func
-  // i think to if func param === undefined, then func param = []
-  // then again in bottom, if func p isarray, then return func.p.push(node)
+
+  preOrder(root, fn) {
+    /*
+    visit root, print
+    traverse left subtree
+    traverse right
+    */
+   if(root === null) {
+    return;
+   }
+   fn(root)
+   this.preOrder(root.left, fn)
+   this.preOrder(root.right, fn)
+  }
 }
-const tester = [4, 5, 6, 8, 9, 10, 11, 12];
+const tester = [4, 2, 5, 1, 6, 3, 7];
 // const n = tester.length - 1;
 const myTree = new Tree(tester);
-console.log(myTree.inOrder(myTree.root, testFunc));
+console.log(myTree.preOrder(myTree.root, testFunc));
 // setTimeout(() => {
 //   prettyPrint(myTree, 'should be gone?');
 // }, 2000);
