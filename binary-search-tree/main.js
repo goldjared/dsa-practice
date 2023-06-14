@@ -119,12 +119,6 @@ class Tree {
     
   }
   inOrder(root, fn) {
-    /*
-    traverse left subtree
-    visit root
-    traverse right subtree
-
-    */
    if(root === null) {
     return;
    }
@@ -136,11 +130,6 @@ class Tree {
   }
 
   preOrder(root, fn) {
-    /*
-    visit root, print
-    traverse left subtree
-    traverse right
-    */
    if(root === null) {
     return;
    }
@@ -149,11 +138,6 @@ class Tree {
    this.preOrder(root.right, fn)
   }
   postOrder(root, fn) {
-    /*
-    traverse left tree
-    traverser right
-    print node
-    */
    if(root === null) {
     return;
    }
@@ -164,12 +148,8 @@ class Tree {
   }
 }
 const tester = [4, 2, 5, 1, 6, 3, 7];
-// const n = tester.length - 1;
 const myTree = new Tree(tester);
 console.log(myTree.postOrder(myTree.root, testFunc));
-// setTimeout(() => {
-//   prettyPrint(myTree, 'should be gone?');
-// }, 2000);
 function testFunc(node) {
   return console.log(node.data, 'test func, nodeLog')
 
