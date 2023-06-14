@@ -88,27 +88,40 @@ class Tree {
       return node.right;
     }
   }
-  levelOrder(node, arr) {
-    /*
-    i will have a queue, i need to get breadth first,
-    so we start first node, both it children (if) go in queue
-    so i am 
-    */
-    if(node === null) {
-      if(arr[arr.length - 1]) {
-        this.levelOrder(arr[arr.length - 1], arr)
-      }
-      // console.log(arr[arr.length - 1], 'JARED');
-      return;
-    }
-   
-    arr.push(node.left, node.right);
-    console.log('********here is arr', arr);
-    this.levelOrder(arr.shift(), arr)
-    // this.levelOrder(node.right);
-    return console.log('yeah here', node.data);
+  levelOrder(root) {
+    const levels = []
 
+    if(!root) {
+        return levels
+    }
+
+    const queue = [root]
+    while (queue.length){
+       const queueLength = queue.length
+       const level = []
+
+       for(let i = 0; i < queueLength; i++){
+
+           const node = queue.shift()
+
+           if(node.left){
+               queue.push(node.left)
+           }
+           if(node.right){
+               queue.push(node.right)
+           }
+
+           level.push(node.data)
+       }
+       levels.push(level)
+   }
+    return levels
     
+  }
+  inOrder(root) {
+    /*
+
+    */
   }
   // for funcs that pass nodes to a func parameter, and if no func parameter, returns an array of func
   // i think to if func param === undefined, then func param = []
@@ -118,7 +131,8 @@ const tester = [4, 5, 6, 8, 9, 10, 11, 12];
 // const n = tester.length - 1;
 const myTree = new Tree(tester);
 // console.log(myTree);
-console.log('****', myTree.levelOrder(myTree.root, []), 'HERE');
+console.log('****', myTree.levelOrder(myTree.root), 'HERE');
+// console.log(myTree.levelOrder(myTree.root, []));
 // myTree.deleteRec(6, myTree.root);
 // myTree.view();
 // myTree.insert(7);
@@ -133,7 +147,8 @@ console.log('****', myTree.levelOrder(myTree.root, []), 'HERE');
 //   prettyPrint(myTree, 'should be gone?');
 // }, 2000);
 function testFunc(node) {
-  console.log(node, 'test func, nodeLog')
+  console.log(node.data, 'test func, nodeLog')
+
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
@@ -148,4 +163,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(myTree.root);
+// prettyPrint(myTree.root);
