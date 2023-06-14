@@ -89,70 +89,66 @@ class Tree {
     }
   }
   levelOrder(root) {
-    const levels = []
+    const levels = [];
 
-    if(!root) {
-        return levels
+    if (!root) {
+      return levels;
     }
 
-    const queue = [root]
-    while (queue.length){
-       const queueLength = queue.length
-       const level = []
+    const queue = [root];
+    while (queue.length) {
+      const queueLength = queue.length;
+      const level = [];
 
-       for(let i = 0; i < queueLength; i++){
+      for (let i = 0; i < queueLength; i++) {
+        const node = queue.shift();
 
-           const node = queue.shift()
+        if (node.left) {
+          queue.push(node.left);
+        }
+        if (node.right) {
+          queue.push(node.right);
+        }
 
-           if(node.left){
-               queue.push(node.left)
-           }
-           if(node.right){
-               queue.push(node.right)
-           }
-
-           level.push(node.data)
-       }
-       levels.push(level)
-   }
-    return levels
-    
+        level.push(node.data);
+      }
+      levels.push(level);
+    }
+    return levels;
   }
   inOrder(root, fn) {
-   if(root === null) {
-    return;
-   }
-   this.inOrder(root.left, fn)
+    if (root === null) {
+      return;
+    }
+    this.inOrder(root.left, fn);
 
-
-   fn(root);
-   this.inOrder(root.right, fn)
+    fn(root);
+    this.inOrder(root.right, fn);
   }
 
   preOrder(root, fn) {
-   if(root === null) {
-    return;
-   }
-   fn(root)
-   this.preOrder(root.left, fn)
-   this.preOrder(root.right, fn)
+    if (root === null) {
+      return;
+    }
+    fn(root);
+    this.preOrder(root.left, fn);
+    this.preOrder(root.right, fn);
   }
   postOrder(root, fn) {
-   if(root === null) {
-    return;
-   }
+    if (root === null) {
+      return;
+    }
 
-   this.postOrder(root.right, fn)
-   this.postOrder(root.left, fn)
-   fn(root)
+    this.postOrder(root.right, fn);
+    this.postOrder(root.left, fn);
+    fn(root);
   }
 }
 const tester = [4, 2, 5, 1, 6, 3, 7];
 const myTree = new Tree(tester);
 console.log(myTree.postOrder(myTree.root, testFunc));
 function testFunc(node) {
-  return console.log(node.data, 'test func, nodeLog')
-
+  return console.log(node.data, "test func, nodeLog");
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
