@@ -144,21 +144,21 @@ class Tree {
     fn(root);
   }
   height(root) {
-  if(root === null) {
-    return 0;
-  }
-  let leftTree = this.height(root.left)
-  console.log(leftTree, 'ltree');
-  let rightTree = this.height(root.right)
-  console.log(rightTree, 'rtree');
-  return  Math.max(leftTree, rightTree) + 1
-
+    if (root === null) {
+      return 0;
+    }
+    let leftTree = this.height(root.left);
+    console.log(leftTree, "ltree");
+    let rightTree = this.height(root.right);
+    console.log(rightTree, "rtree");
+    return Math.max(leftTree, rightTree) + 1;
   }
 }
 const tester = [4, 2, 5, 1];
 const myTree = new Tree(tester);
 console.log(myTree.height(myTree.root));
-function testFunc(node) { // think i will change this to a 'printer' func
+function testFunc(node) {
+  // think i will change this to a 'printer' func
   return console.log(node.data, "test func, nodeLog");
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
