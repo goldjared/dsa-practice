@@ -143,11 +143,26 @@ class Tree {
     this.postOrder(root.left, fn);
     fn(root);
   }
+  height(root) {
+  if(root === null) {
+    return 0;
+  }
+  let leftTree = this.height(root.left)
+  console.log(leftTree, 'ltree');
+  let rightTree = this.height(root.right)
+  console.log(rightTree, 'rtree');
+  if(leftTree > rightTree) {
+    return leftTree + 1
+  } else {
+    return rightTree + 1
+  }
+
+  }
 }
 const tester = [4, 2, 5, 1, 6, 3, 7];
 const myTree = new Tree(tester);
-console.log(myTree.postOrder(myTree.root, testFunc));
-function testFunc(node) {
+console.log(myTree.height(myTree.root));
+function testFunc(node) { // think i will change this to a 'printer' func
   return console.log(node.data, "test func, nodeLog");
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
