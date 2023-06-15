@@ -151,15 +151,11 @@ class Tree {
   console.log(leftTree, 'ltree');
   let rightTree = this.height(root.right)
   console.log(rightTree, 'rtree');
-  if(leftTree > rightTree) {
-    return leftTree + 1
-  } else {
-    return rightTree + 1
-  }
+  return  Math.max(leftTree, rightTree) + 1
 
   }
 }
-const tester = [4, 2, 5, 1, 6, 3, 7];
+const tester = [4, 2, 5, 1];
 const myTree = new Tree(tester);
 console.log(myTree.height(myTree.root));
 function testFunc(node) { // think i will change this to a 'printer' func
