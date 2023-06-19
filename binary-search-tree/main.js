@@ -185,17 +185,8 @@ class Tree {
   }
 
 }
-const tester = [4, 5, 9, 10, 11,12,13,14,144,443,223,123];
-let myTree = new Tree(tester);
-console.log(myTree.root, 'here root');
-myTree.insert(343)
-myTree.insert(843)
-myTree.insert(911)
-console.log(myTree.isBalanced(myTree.root), 'should be false, isBalanced');
-// console.log(myTree.rebalance(myTree));
 
-function testFunc(node) {
-  // think i will change this to a 'printer' func
+function print(node) {
   return node;
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -211,9 +202,9 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(myTree.root);
-myTree = myTree.rebalance();
-setTimeout(() => {
-  prettyPrint(myTree.root)
-}, 2000)
+// prettyPrint(myTree.root);
+// myTree = myTree.rebalance();
+// setTimeout(() => {
+//   prettyPrint(myTree.root)
+// }, 2000)
 
