@@ -186,8 +186,8 @@ class Tree {
 
 }
 
-function print(node) {
-  return node;
+function printer(node) {
+  return console.log(node)
 }
 function makeArray(length) {
   let newArray = [];
@@ -196,6 +196,23 @@ function makeArray(length) {
   }
   return newArray;
 }
+
+
+//test
+let testArray = makeArray(22);
+let testTree = new Tree(testArray);
+console.log(testTree.isBalanced(testTree.root)); //true
+
+testTree.insert(23)
+testTree.insert(43)
+testTree.insert(9)
+testTree.insert(32)
+testTree.insert(99)
+console.log(testTree.isBalanced(testTree.root)); //false
+testTree = testTree.rebalance()
+console.log(testTree.isBalanced(testTree.root)); //true
+console.log(testTree.levelOrder(testTree.root));
+
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     return;
@@ -209,7 +226,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-// prettyPrint(myTree.root);
+prettyPrint(testTree.root);
 // myTree = myTree.rebalance();
 // setTimeout(() => {
 //   prettyPrint(myTree.root)
