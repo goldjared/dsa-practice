@@ -153,9 +153,9 @@ class Tree {
       return -1;
     }
     let leftTree = this.height(root.left);
-    console.log(leftTree, "ltree");
+    // console.log(leftTree, "ltree");
     let rightTree = this.height(root.right);
-    console.log(rightTree, "rtree");
+    // console.log(rightTree, "rtree")
     return Math.max(leftTree, rightTree) + 1;
   }
   depth(root) {
@@ -178,26 +178,21 @@ class Tree {
       return false;
     }
   }
-  rebalance(tree) {
-    /*
-    ok my tree is unbalanced. i will call this with my tree.
-    it will call a inorder func to get array of my tree. 
-    it will set my tree equal to new tree with array.
-    */
-   let balancedArray = this.inOrder(tree.root, [])
-   
+  rebalance() {
+   let balancedArray = this.inOrder(this.root, [])
+   return new Tree(balancedArray)
 
   }
 
 }
 const tester = [4, 5, 9, 10, 11,12,13,14,144,443,223,123];
-const myTree = new Tree(tester);
+let myTree = new Tree(tester);
 console.log(myTree.root, 'here root');
 myTree.insert(343)
 myTree.insert(843)
 myTree.insert(911)
 console.log(myTree.isBalanced(myTree.root), 'should be false, isBalanced');
-console.log(myTree.rebalance(myTree));
+// console.log(myTree.rebalance(myTree));
 
 function testFunc(node) {
   // think i will change this to a 'printer' func
@@ -217,7 +212,8 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 };
 
 prettyPrint(myTree.root);
+myTree = myTree.rebalance();
 setTimeout(() => {
-  prettyPrint(newerTree.root)
+  prettyPrint(myTree.root)
 }, 2000)
 
