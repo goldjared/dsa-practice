@@ -189,6 +189,13 @@ class Tree {
 function print(node) {
   return node;
 }
+function makeArray(length) {
+  let newArray = [];
+  while(newArray.length < length) {
+    newArray.push(Math.floor(Math.random() * 100))
+  }
+  return newArray;
+}
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     return;
