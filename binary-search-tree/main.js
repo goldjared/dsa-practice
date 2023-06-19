@@ -121,9 +121,14 @@ class Tree {
       return;
     }
     this.inOrder(root.left, fn);
-
-    fn(root);
+    if(Array.isArray(fn)) {
+      fn.push(root)
+    } else {
+      fn(root);
+    }
     this.inOrder(root.right, fn);
+    
+    if(Array.isArray(fn)) return fn;
   }
 
   preOrder(root, fn) {
@@ -173,7 +178,15 @@ class Tree {
       return false;
     }
   }
+  rebalance(tree) {
+    /*
+    ok my tree is unbalanced. i will call this with my tree.
+    it will call a inorder func to get array of my tree. 
+    it will set my tree equal to new tree with array.
+    */
+   
 
+  }
 
 }
 const tester = [4, 5, 9, 10, 11,12,13,14,144,443,223,123];
@@ -183,7 +196,7 @@ myTree.insert(343)
 myTree.insert(843)
 myTree.insert(911)
 
-console.log(myTree.rebalance(myTree.root)); //should be 3 depth
+console.log(myTree.rebalance(myTree)); //should be 3 depth
 
 // console.log(myTree.height(myTree.root)); //should be 3 depth
 function testFunc(node) {
@@ -204,3 +217,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 };
 
 prettyPrint(myTree.root);
+
