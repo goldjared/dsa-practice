@@ -122,7 +122,7 @@ class Tree {
     }
     this.inOrder(root.left, fn);
     if(Array.isArray(fn)) {
-      fn.push(root)
+      fn.push(root.data)
     } else {
       fn(root);
     }
@@ -184,6 +184,7 @@ class Tree {
     it will call a inorder func to get array of my tree. 
     it will set my tree equal to new tree with array.
     */
+   let balancedArray = this.inOrder(tree.root, [])
    
 
   }
@@ -195,10 +196,9 @@ console.log(myTree.root, 'here root');
 myTree.insert(343)
 myTree.insert(843)
 myTree.insert(911)
+console.log(myTree.isBalanced(myTree.root), 'should be false, isBalanced');
+console.log(myTree.rebalance(myTree));
 
-console.log(myTree.rebalance(myTree)); //should be 3 depth
-
-// console.log(myTree.height(myTree.root)); //should be 3 depth
 function testFunc(node) {
   // think i will change this to a 'printer' func
   return node;
@@ -217,4 +217,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 };
 
 prettyPrint(myTree.root);
+setTimeout(() => {
+  prettyPrint(newerTree.root)
+}, 2000)
 
