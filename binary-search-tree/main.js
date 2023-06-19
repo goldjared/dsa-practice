@@ -145,7 +145,7 @@ class Tree {
   }
   height(root) {
     if (root === null) {
-      return 0;
+      return -1;
     }
     let leftTree = this.height(root.left);
     console.log(leftTree, "ltree");
@@ -153,10 +153,21 @@ class Tree {
     console.log(rightTree, "rtree");
     return Math.max(leftTree, rightTree) + 1;
   }
+  depth(root) {
+    if(root === null) return -1;
+    let left = this.depth(root.left)
+    // console.log(left, 'left');
+    let right = this.depth(root.right)
+    // console.log(right, 'right');
+    return Math.max(left, right) + 1;
+  }
+
 }
-const tester = [4, 2, 5, 1];
+const tester = [4, 5, 9, 10, 11,12,13,14,144,443,223,123];
 const myTree = new Tree(tester);
-console.log(myTree.height(myTree.root));
+console.log(myTree.root, 'here root');
+console.log(myTree.depth(myTree.root)); //should be 3 depth
+console.log(myTree.height(myTree.root)); //should be 3 depth
 function testFunc(node) {
   // think i will change this to a 'printer' func
   return console.log(node.data, "test func, nodeLog");
