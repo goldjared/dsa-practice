@@ -161,16 +161,34 @@ class Tree {
     // console.log(right, 'right');
     return Math.max(left, right) + 1;
   }
+  isBalanced(root) {
+    if(root === null) {
+      return true;
+    }
+    let left = this.height(root.left)
+    let right = this.height(root.right)
+    if(Math.abs(left - right) <= 1 && this.isBalanced(root.left) && this.isBalanced(root.right)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 }
 const tester = [4, 5, 9, 10, 11,12,13,14,144,443,223,123];
 const myTree = new Tree(tester);
 console.log(myTree.root, 'here root');
-console.log(myTree.depth(myTree.root)); //should be 3 depth
-console.log(myTree.height(myTree.root)); //should be 3 depth
+myTree.insert(343)
+myTree.insert(843)
+myTree.insert(911)
+
+console.log(myTree.rebalance(myTree.root)); //should be 3 depth
+
+// console.log(myTree.height(myTree.root)); //should be 3 depth
 function testFunc(node) {
   // think i will change this to a 'printer' func
-  return console.log(node.data, "test func, nodeLog");
+  return node;
 }
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
