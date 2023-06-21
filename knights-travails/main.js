@@ -29,7 +29,7 @@ function game() {
         colValue > 2 ||
         rowValue < 1 ||
         rowValue > 2 ||
-        colValue != rowValue
+        colValue === rowValue
       ) {
         return false;
       } else {
@@ -46,7 +46,7 @@ let chessBoard = game().board(1);
 let myKnight = game().knight();
 console.log(chessBoard.length);
 // console.log(myKnight);
-console.log(myKnight.move([8, 6], [3, 6]));
+console.log(myKnight.move([2, 3], [3, 1]));
 
 /*
   knightMOve(current, target)
