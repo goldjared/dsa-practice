@@ -11,6 +11,15 @@ function game() {
 
   function knight() {
     let move = (currentPos, targetPos) => {
+      const screenArray = currentPos.concat(targetPos)
+      let screenArrayResult;
+      screenArray.forEach(pos => {
+        if(pos < 1 || pos > 8) {
+          screenArrayResult = false;
+        }
+      });
+      if(screenArrayResult === false) return false;
+      
       let colValue = 0;
       let rowValue = 0;
       if (currentPos[0] < targetPos[0]) {
@@ -46,7 +55,7 @@ let chessBoard = game().board(1);
 let myKnight = game().knight();
 console.log(chessBoard.length);
 // console.log(myKnight);
-console.log(myKnight.move([2, 3], [3, 1]));
+console.log(myKnight.move([2, -1], [3, 1]));
 
 /*
   knightMOve(current, target)
