@@ -290,10 +290,14 @@ the stack,
 
 // //   return fibRec(num - 1) + fibRec(num - 2);
 // }
-function fibRec(n) {
-  if (n == 0) return [0]
-  if (n == 1) return [0, 1]
-  const arr = fibRec(n - 1)
-  return [...arr, arr[n-1] + arr[n-2]]
+// function fibRec(n) {
+//   if (n == 0) return [0]
+//   if (n == 1) return [0, 1]
+//   const arr = fibRec(n - 1)
+//   return [...arr, arr[n-1] + arr[n-2]]
+// }
+// console.log(fibRec(5))
+function fib(n) {
+    return n<2 ? n : fib(n-1) + fib(n-2)
 }
-console.log(fibRec(5))
+console.log(fib(10));
